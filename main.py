@@ -146,21 +146,6 @@ class Game:
                 else:
                     print('Game Draw!')
                 break
-                
-            # player2_entry()
-            # cell = input(f'{player1} Enter Cell: ').upper()
-            # res = self.__next_player(cell)
-            # if type(res) is not list:
-            #     cell = input(f'{player2} Enter Cell: ').upper()
-            #     res = self.__next_player(cell)
-            # if type(res) is list:
-            #     if self.__X in res:
-            #         print(f'{player1} wins!\nMatched: {res[-1]}')
-            #     elif self.__O in res:
-            #         print(f'{player2} wins!\nMatched: {res[-1]}')
-            #     else:
-            #         print('Game Draw!')
-            #     break
 
 
 if __name__ == '__main__':
