@@ -108,24 +108,11 @@ class Game:
         player2 = input('Player 2 Name: ')
         print(f'{player2} is {self.__O}')
         
-        def player1_entry():
+        def player_entry(player_number: int):
             res = None
             while True:
-                cell = input(f'{player1} Enter Cell: ').upper()
-                if cell[0] not in ['A', 'B', 'C'] or 1 > int(cell[-1]) > 3:
-                    print('Invalid Cell!')
-                    continue
-                res = self.__next_player(cell)
-                if res is None:
-                    continue
-                break
-            return res
-        
-        def player2_entry():
-            res = None
-            while True:
-                cell = input(f'{player2} Enter Cell: ').upper()
-                if cell[0] not in ['A', 'B', 'C'] or 1 > int(cell[-1]) > 3:
+                cell = input(f'{player1} Enter Cell: ').upper() if player_number == 1 else input(f'{player2} Enter Cell: ').upper()
+                if cell[0] not in ['A', 'B', 'C'] or int(cell[-1]) not in range(1, 4):
                     print('Invalid Cell!')
                     continue
                 res = self.__next_player(cell)
@@ -135,9 +122,9 @@ class Game:
             return res
         
         while not self.__check_result():
-            res = player1_entry()
+            res = player_entry(player_number=1)
             if type(res) is not list:
-                res = player2_entry()
+                res = player_entry(player_number=2)
             if type(res) is list:
                 if self.__X in res:
                     print(f'{player1} wins!\nMatched: {res[-1]}')
